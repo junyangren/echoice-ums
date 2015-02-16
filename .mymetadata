@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="EchoiceUms"
+  id="myeclipse.1423879979000"
+  context-root="/ecums"
+  j2ee-spec="5.0"
+  archive="EchoiceUms.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,26 @@
+.x-ux-progressbar
+{
+  height: 1.5em;
+  border: 1px solid gray;
+  background-color: white;
+}
+
+.x-ux-progressbar .x-ux-progressbar-line
+{
+  height: 100%;
+  width: 0px;
+  background-image: url('progress_fill.gif');
+  background-color: #1D4F79;
+  background-repeat: repeat-x;
+}
+
+.x-ux-progressbar .x-ux-progressbar-text
+{
+  text-align: center;
+  overflow: hidden;
+}
+
+.x-toolbar .x-ux-progressbar
+{
+  width: 100px;
+}

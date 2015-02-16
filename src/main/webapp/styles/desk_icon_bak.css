@@ -1,0 +1,91 @@
+/* Desktop Shortcuts */
+
+#x-shortcuts{
+	text-align: center;
+}
+#x-shortcuts dt {
+    float:left;
+    margin:15px auto 0px auto;
+    padding-left: 20px;
+    clear:left;
+    width:64px;
+    font:normal 12px tahoma,arial,verdana,sans-serif;
+    text-align:center;
+    zoom:1;
+    display:block;
+}
+#x-shortcuts dt a {
+    width:100px;
+    display:block;
+    color:#000000;
+    text-decoration:none;
+}
+#x-shortcuts dt div {
+    width:100%;
+    color:#000000;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    cursor:pointer;
+}
+.ext-ie #x-shortcuts dt img {
+    /*background:transparent !important;*/
+}
+#x-shortcuts dt a:hover {
+    text-decoration:underline;
+}
+
+/* shortcuts */
+#opt_menu img {
+    width:48px;
+    height:48px;
+    background-image: url(../images/shortcut/png-access.png);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shortcut/png-access.png', sizingMethod='scale');
+}
+#resource_menu img {
+    width:32px;
+    height:32px;
+    background-image: url(../images/shortcut/obj.png);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shortcut/gif-obj.jpg', sizingMethod='scale');
+}
+
+#group_menu img {
+    width:48px;
+    height:48px;
+    background-image: url(../images/shortcut/gif-group.gif);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shortcut/gif-group.gif', sizingMethod='scale');
+}
+
+#user_menu img {
+    width:48px;
+    height:48px;
+    background-image: url(../images/shortcut/gif-user.gif);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shortcut/gif-user.gif', sizingMethod='scale');
+}
+
+#role_menu img {
+    width:48px;
+    height:48px;
+    background-image: url(../images/shortcut/png-role.png);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shortcut/png-role.png', sizingMethod='scale');
+}
+
+#role_search img {
+    width:48px;
+    height:48px;
+    background-image: url(../images/shortcut/gif-search.jpg);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shortcut/gif-search.jpg', sizingMethod='scale');
+}
+
+#ec-skin-shortcut img {
+    width:48px;
+    height:48px;
+    background-image: url(../images/shortcut/png-skin.png);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shortcut/png-skin.png', sizingMethod='scale');
+}
+
+#ec-logout-shortcut img {
+    width:48px;
+    height:48px;
+    background-image: url(../images/shortcut/png-logout.png);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/shortcut/png-logout.png', sizingMethod='scale');
+}

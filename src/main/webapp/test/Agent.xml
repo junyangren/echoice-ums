@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="AgentInfo">
+  <typeAlias alias="agent" type="com.ffcs.uvcair.domain.AgentInfo"/>
+  <typeAlias alias="pagehelper" type="com.ffcs.uvcair.util.PageHelper"/>
+  
+  <resultMap id="result" class="agent">
+    <result property="accountid" column="accountid" columnIndex="1"/>
+    <result property="agent_name" column="agent_name" columnIndex="2"/>
+    <result property="area_code"  column="agent_area_code" columnIndex="3"/>  
+    <result property="status"  column="status" columnIndex="4"/> 
+    <result property="sms_number" column="sms_number" columnIndex="5"/>
+    <result property="create_date" column="create_date" columnIndex="6"/>  
+  </resultMap>
+  
+  <select id="select" parameterClass="pagehelper" resultMap="result">
+  <![CDATA[ 
+  	 select tb.* from (select ta.*  from (select /*+ first_rows */rownum No,accountid,agent_name,agent_area_code,status,sms_number,create_date from (
+ 	 SELECT accountid,agent_name,p.area_name as agent_area_code,
+            decode(status,'00','正常','01','正在使用','02','注销','03','锁定','04','暂定','05','账户金额异常') status,
+            sms_number,to_char(create_date,'yyyy-mm-dd') create_date           
+ 	 FROM SVC_AGENT_INFO a,tp_area p where a.agent_area_code=p.area_code and $filterSearch$ order by accountid
+ 	 ) )ta where ta.No>#beginPos# and ta.No <= #endPos#)tb    
+   ]]>   
+  </select>
+  
+  <select id="selectCount" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+  <![CDATA[ 
+     SELECT COUNT(*) FROM SVC_AGENT_INFO WHERE $CONDITION$    
+   ]]>   
+  </select>
+  
+  <update id="update" parameterClass="agent">
+		UPDATE SVC_AGENT_INFO set PASSWORD=#password# WHERE ACCOUNTID=#accountid#
+  </update>
+  
+  
+</sqlMap>

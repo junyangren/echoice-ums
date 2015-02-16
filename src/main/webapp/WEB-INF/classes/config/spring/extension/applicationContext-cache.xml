@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-autowire="byName">
+	<!-- 引用ehCache的配置 -->
+	<bean id="defaultCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+	 	<property name="configLocation">
+	  		<value>classpath:ehcache.xml</value>
+	 	</property>
+	</bean>
+	<!-- 定义ehCache的工厂，并设置所使用的Cache name -->
+	<bean id="ehCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+	 	<property name="cacheManager">
+	  		<ref local="defaultCacheManager" />
+	 	</property>
+	 	<property name="cacheName">
+	  		<value>DEFAULT_CACHE</value>
+	 	</property>
+	</bean>
+	
+</beans>

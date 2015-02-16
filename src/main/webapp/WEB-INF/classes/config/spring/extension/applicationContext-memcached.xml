@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-autowire="byName">
+	<!-- SpyMemcached客户端 -->
+	<bean id="spyMemcachedClient" class="org.echoice.modules.memcached.SpyMemcachedClient">
+		<property name="memcachedClient">
+			<bean class="net.spy.memcached.spring.MemcachedClientFactoryBean">
+				<property name="servers" value="localhost:11511" />
+				<!-- 默认是TEXT -->
+				<property name="protocol" value="TEXT" />
+				<!-- 默认是ARRAY_MOD -->
+				<property name="locatorType" value="CONSISTENT" />
+				<!-- 默认是2500毫秒 -->
+				<property name="opTimeout" value="1000" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 演示用的JMemcached, 模拟Memcached服务器 -->
+	<bean id="memcachedSimulator" class="org.echoice.modules.memcached.MemcachedSimulator" lazy-init="false">
+		<property name="serverUrl" value="localhost:11511" />
+	</bean>
+	
+	
+</beans>

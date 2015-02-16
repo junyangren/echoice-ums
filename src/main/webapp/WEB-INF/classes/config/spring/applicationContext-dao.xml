@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd" default-autowire="byName">
+	<!--  
+	<bean id="ecGroupDao" class="org.echoice.ums.dao.impl.EcGroupDaoImpl"></bean>
+	<bean id="ecObjectsDao" class="org.echoice.ums.dao.impl.EcObjectsDaoImpl"></bean>
+	<bean id="ecAccssModeDao" class="org.echoice.ums.dao.impl.EcAccssModeDaoImpl"></bean>
+	<bean id="ecRoleDao" class="org.echoice.ums.dao.impl.EcRoleDaoImpl"></bean>
+	<bean id="ecUserDao" class="org.echoice.ums.dao.impl.EcUserDaoImpl"></bean>
+	<bean id="ecOperatorDao" class="org.echoice.ums.dao.impl.EcOperatorDaoImpl"></bean>
+	<bean id="ecUsersAssignmenDao" class="org.echoice.ums.dao.impl.EcUsersAssignmenDaoImpl"></bean>
+	<bean id="ecPermissionDao" class="org.echoice.ums.dao.impl.EcPermissionDaoImpl"></bean>
+	<bean id="ecGroupAssignmentDao" class="org.echoice.ums.dao.impl.EcGroupAssignmentDaoImpl"></bean>
+	-->
+	<bean id="appPluginDao" class="org.echoice.ums.dao.impl.AppPluginDaoImpl"></bean>
+</beans>

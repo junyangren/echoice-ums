@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ERDiagram version="1.1">
+  <Connection session="ec_ums" database="ec_rbac" />
+  <Drawing gridVisible="false" snapOn="false" fastRouting="false" labelsVisible="true" />
+  <Tables>
+    <Table name="ec_accss_mode">
+      <Drawing expanded="true" location="0,608" dimensions="181,129" />
+      <Columns>
+        <Column name="accss_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="alias" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="4" />
+        </Column>
+        <Column name="note" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_group">
+      <Drawing expanded="true" location="1090,329" dimensions="181,129" />
+      <Columns>
+        <Column name="group_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="alias" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="parent_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="note" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_objects">
+      <Drawing expanded="true" location="280,578" dimensions="179,189" />
+      <Columns>
+        <Column name="obj_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="alias" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="4" />
+        </Column>
+        <Column name="parent_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="note" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+        <Column name="type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="30" />
+        </Column>
+        <Column name="icon" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_operator">
+      <Drawing expanded="true" location="149,350" dimensions="162,87" />
+      <Columns>
+        <Column name="oper_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="obj_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="accss_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_permission">
+      <Drawing expanded="true" location="213,51" dimensions="155,87" />
+      <Columns>
+        <Column name="pa_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="role_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="oper_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_resource">
+      <Drawing expanded="true" location="0,812" dimensions="202,149" />
+      <Columns>
+        <Column name="resource_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="alias" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="4" />
+        </Column>
+        <Column name="parent_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="type" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="255" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_role">
+      <Drawing expanded="true" location="411,319" dimensions="179,149" />
+      <Columns>
+        <Column name="role_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="alias" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="4" />
+        </Column>
+        <Column name="parent_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="note" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_user_extend">
+      <Drawing expanded="true" location="766,0" dimensions="179,189" />
+      <Columns>
+        <Column name="user_id" primary_key="true" foreign_key="true" required="true" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="mobile" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="30" />
+        </Column>
+        <Column name="tel" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="20" />
+        </Column>
+        <Column name="address" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="qq" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="20" />
+        </Column>
+        <Column name="msn" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="duty" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="leader_id" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_user_group">
+      <Drawing expanded="true" location="1045,51" dimensions="161,87" />
+      <Columns>
+        <Column name="ug_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="group_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_user">
+      <Drawing expanded="true" location="769,309" dimensions="174,169" />
+      <Columns>
+        <Column name="user_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="alias" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="password" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="100" />
+        </Column>
+        <Column name="email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="status" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="4" />
+        </Column>
+        <Column name="note" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="200" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="ec_users_assignmen">
+      <Drawing expanded="true" location="509,51" dimensions="157,87" />
+      <Columns>
+        <Column name="ua_id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+        <Column name="role_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="BIGINT" size="19" />
+        </Column>
+      </Columns>
+    </Table>
+  </Tables>
+  <Relationships>
+    <Relationship name="FK_Relationship_2">
+      <Details primary_table="ec_accss_mode" foreign_table="ec_operator">
+        <PrimaryKeys>
+          <ColumnName name="accss_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="accss_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK1E309F2576706554">
+      <Details primary_table="ec_objects" foreign_table="ec_operator">
+        <PrimaryKeys>
+          <ColumnName name="obj_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="obj_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK1E309F25A39A6FA">
+      <Details primary_table="ec_accss_mode" foreign_table="ec_operator">
+        <PrimaryKeys>
+          <ColumnName name="accss_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="accss_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK_Relationship_1">
+      <Details primary_table="ec_objects" foreign_table="ec_operator">
+        <PrimaryKeys>
+          <ColumnName name="obj_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="obj_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK3568A010E81E383D">
+      <Details primary_table="ec_role" foreign_table="ec_permission">
+        <PrimaryKeys>
+          <ColumnName name="role_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="role_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK3568A0104C077213">
+      <Details primary_table="ec_operator" foreign_table="ec_permission">
+        <PrimaryKeys>
+          <ColumnName name="oper_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="oper_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK_Relationship_11">
+      <Details primary_table="ec_operator" foreign_table="ec_permission">
+        <PrimaryKeys>
+          <ColumnName name="oper_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="oper_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK_Relationship_3">
+      <Details primary_table="ec_role" foreign_table="ec_permission">
+        <PrimaryKeys>
+          <ColumnName name="role_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="role_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK137C73ED8D48FC1D">
+      <Details primary_table="ec_user" foreign_table="ec_user_extend">
+        <PrimaryKeys>
+          <ColumnName name="user_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="user_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK_Relationship_9">
+      <Details primary_table="ec_user" foreign_table="ec_user_extend">
+        <PrimaryKeys>
+          <ColumnName name="user_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="user_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK_Relationship_8">
+      <Details primary_table="ec_user" foreign_table="ec_user_group">
+        <PrimaryKeys>
+          <ColumnName name="user_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="user_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FKC6EBDB4C8D48FC1D">
+      <Details primary_table="ec_user" foreign_table="ec_user_group">
+        <PrimaryKeys>
+          <ColumnName name="user_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="user_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK_Relationship_10">
+      <Details primary_table="ec_group" foreign_table="ec_user_group">
+        <PrimaryKeys>
+          <ColumnName name="group_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="group_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FKC6EBDB4C491C9377">
+      <Details primary_table="ec_group" foreign_table="ec_user_group">
+        <PrimaryKeys>
+          <ColumnName name="group_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="group_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK_Relationship_5">
+      <Details primary_table="ec_user" foreign_table="ec_users_assignmen">
+        <PrimaryKeys>
+          <ColumnName name="user_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="user_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK_Relationship_6">
+      <Details primary_table="ec_role" foreign_table="ec_users_assignmen">
+        <PrimaryKeys>
+          <ColumnName name="role_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="role_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK61A1CF6F8D48FC1D">
+      <Details primary_table="ec_user" foreign_table="ec_users_assignmen">
+        <PrimaryKeys>
+          <ColumnName name="user_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="user_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK61A1CF6FE81E383D">
+      <Details primary_table="ec_role" foreign_table="ec_users_assignmen">
+        <PrimaryKeys>
+          <ColumnName name="role_id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="role_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+  </Relationships>
+</ERDiagram>
+

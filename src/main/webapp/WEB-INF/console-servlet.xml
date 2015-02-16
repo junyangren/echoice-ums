@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-autowire="byName" default-lazy-init="true">
+	<!--  
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	    <property name="exceptionMappings">
+	    	<props>
+	    		<prop key="java.sql.SQLException">/commons/error-ext.jsp</prop>
+	    		<prop key="java.lang.RuntimeException">/commons/error-ext.jsp</prop>
+	    		<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">/commons/error-ext.jsp</prop>
+	    	</props>
+	    </property>
+	</bean>
+	-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- maximum file size in bytes -->
+        <property name="maxUploadSize">
+            <value>50000000</value>
+        </property>
+    </bean> 
+
+    <!-- Multi-Action 用来标识method的变量名定义-->
+    <bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+        <property name="paramName">
+            <value>action</value>
+        </property>
+        <property name="defaultMethodName">
+            <value>index</value>
+        </property>
+    </bean>
+
+    <!--Default ViewResolver,因为照顾普通JSP的一体性,没有进行WEB-INF/jsp转向-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+    </bean>
+    
+    
+	<!-- 用于url映射控制 -->
+    <bean id="commonHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+        	<value>
+        		/login.do=loginController
+        		/opUser.do=userController
+        		/opGroup.do=groupController
+        		/opObjects.do=objectsController
+        		/opAccssMode.do=accssModeController
+        		/opRole.do=roleController
+        		/opExtJsTree.do=extJsTreeController
+        		/opExtJs.do=extJsController
+        		/opOperator.do=operatorController
+        		/opUsersAssignmen.do=usersAssignmenController
+        		/opPermission.do=permissionController
+        		/opGroupAssignmen.do=groupAssignmentController
+        	</value>
+        </property>
+    </bean>
+    <bean id="loginController" class="org.echoice.ums.web.controller.LoginController">
+
+    </bean>
+    <bean id="userController" class="org.echoice.ums.web.controller.UserController">
+    	<property name="filterList">
+    		<list>
+    			<bean id="delUserForTaskCheckCmd" class="org.echoice.ums.plugins.DelUserForTaskCheckCmd"></bean>
+    		</list>
+    	</property>
+    </bean>
+    <bean id="groupController" class="org.echoice.ums.web.controller.GroupController">
+    	<property name="filterList">
+    		<list>
+    			<bean id="groupUmsCheckCmd" class="org.echoice.ums.plugins.GroupUmsCheckCmd"></bean>
+    			<!--  
+    			<bean id="groupStorageCheckCmd" class="org.echoice.ums.plugins.GroupStorageCheckCmd"></bean>
+    			-->
+    		</list>
+    	</property>
+    </bean>
+    <bean id="objectsController" class="org.echoice.ums.web.controller.ObjectsController"></bean>
+    <bean id="accssModeController" class="org.echoice.ums.web.controller.AccssModeController"></bean>
+    <bean id="operatorController" class="org.echoice.ums.web.controller.OperatorController"></bean>
+    <bean id="usersAssignmenController" class="org.echoice.ums.web.controller.UsersAssignmenController"></bean>
+    <bean id="permissionController" class="org.echoice.ums.web.controller.PermissionController"></bean>
+    <bean id="groupAssignmentController" class="org.echoice.ums.web.controller.GroupAssignmentController"></bean>
+    
+    <bean id="roleController" class="org.echoice.ums.web.controller.RoleController"></bean>
+    <bean id="extJsTreeController" class="org.echoice.ums.web.controller.ExtJsTreeController"></bean>
+    <bean id="extJsController" class="org.echoice.ums.web.controller.ExtJsController"></bean>
+    
+    
+    <!--bean id="exampleController" class="org.echoice.example.ExampleController">
+    	<property name="validators" ref="beanValidator"></property>
+    </bean-->
+</beans>

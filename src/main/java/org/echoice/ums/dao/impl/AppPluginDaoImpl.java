@@ -6,7 +6,9 @@ import org.echoice.core.module.jpa.BaseCommonDao;
 import org.echoice.ums.dao.AppPluginDao;
 import org.echoice.ums.dao.mapper.RowMapperForGroup;
 import org.echoice.ums.domain.EcGroup;
-
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 public class AppPluginDaoImpl extends BaseCommonDao implements AppPluginDao{
 	public boolean checkStorageForGroup(String groupIds){
 		String sql="select count(*) from ccm_storage_realtime t1,ec_group t2";

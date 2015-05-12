@@ -18,12 +18,13 @@ import org.echoice.ums.web.view.EcUserInfoView;
 import org.echoice.ums.web.view.EcUserView;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.annotation.Transactional;
-@Transactional
+
 public class EcUserDaoImpl extends BaseCommonDao {
+	@Transactional
 	public void saveUserGroup(EcUserGroup userGroup ){
 		getEntityManager().persist(userGroup);
 	}
-	
+	@Transactional
 	public void save(EcUser ecUser,EcUserExtend ecUserExtend){
 		if(ecUser.getUserId()==null){
 			getEntityManager().persist(ecUser);

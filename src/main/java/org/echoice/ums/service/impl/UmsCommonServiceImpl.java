@@ -19,6 +19,7 @@ import org.echoice.ums.service.UmsCommonService;
 import org.echoice.ums.util.Pinying4jUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
@@ -140,6 +141,7 @@ public class UmsCommonServiceImpl implements UmsCommonService {
 		logger.info("用户组全称、路径同步结束！！");
 	}
 	
+	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 	public EcObjectsDao getEcObjectsDao() {
 		return ecObjectsDao;
 	}
@@ -148,19 +150,21 @@ public class UmsCommonServiceImpl implements UmsCommonService {
 		this.ecObjectsDao = ecObjectsDao;
 	}
 
+	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 	public EcUserDao getEcUserDao() {
 		return ecUserDao;
 	}
 	public void setEcUserDao(EcUserDao ecUserDao) {
 		this.ecUserDao = ecUserDao;
 	}
+	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 	public EcGroupDao getEcGroupDao() {
 		return ecGroupDao;
 	}
 	public void setEcGroupDao(EcGroupDao ecGroupDao) {
 		this.ecGroupDao = ecGroupDao;
 	}
-
+	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 	public LoginAuthBean getLoginAuthBean() {
 		return loginAuthBean;
 	}

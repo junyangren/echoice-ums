@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.ConnectionCallback;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Lists;
-@Transactional
+
 public class EcGroupDaoImpl extends BaseCommonDao {
 
 	public List<EcGroup> findGroupTreeChild(Long parentId) {
@@ -38,7 +38,7 @@ public class EcGroupDaoImpl extends BaseCommonDao {
 		List<EcGroup> list=createQuery(hql).getResultList();
 		return list;
 	}
-	
+	@Transactional
 	public void deleteGroupByIds(String ids) {
 		// TODO Auto-generated method stub
 		String sql="delete from ec_group where group_id in("+ids+")";

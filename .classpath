@@ -9,8 +9,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/echoice-core-2.0.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/quartz-1.6.1.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/cas-client-core-3.2.1.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/pinyin4j-2.5.0.jar"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>

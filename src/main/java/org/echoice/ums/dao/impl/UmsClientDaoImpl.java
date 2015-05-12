@@ -20,7 +20,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 public class UmsClientDaoImpl implements UmsClientDao{
 	private JdbcTemplate jdbcTemplate;
 	protected Logger logger = LoggerFactory.getLogger(getClass());
@@ -134,7 +136,7 @@ public class UmsClientDaoImpl implements UmsClientDao{
 		MD5 md5=new MD5();
 		String md5Password=md5.getMD5ofStr(password);
 	}
-	
+	@Transactional
 	public boolean updateUserPassword(String alias,String oldPassword,String newPassword){
 		//
 		MD5 md5=new MD5();

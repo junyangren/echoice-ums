@@ -11,7 +11,7 @@ import org.echoice.ums.domain.EcGroupAssignment;
 import org.echoice.ums.domain.EcRole;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
+
 public class EcGroupAssignmentDaoImpl extends BaseCommonDao{
 	
 	public List findAssignRoleList(Long groupId){
@@ -33,7 +33,7 @@ public class EcGroupAssignmentDaoImpl extends BaseCommonDao{
 			return false;
 		}
 	}
-
+	@Transactional
 	public void saveBatch(Long[] groupIds, Long[] roleIds) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < groupIds.length; i++) {
@@ -59,14 +59,14 @@ public class EcGroupAssignmentDaoImpl extends BaseCommonDao{
 			}
 		}
 	}
-
+	@Transactional
 	public void remove(Long groupId, Long roleId) {
 		// TODO Auto-generated method stub
 		String hql="delete from EcGroupAssignment t where t.ecGroup.groupId=? and t.ecRole.roleId=?";
 		Query query=createQuery(hql, new Object[]{groupId,roleId});
 		query.executeUpdate();
 	}
-
+	@Transactional
 	public void removeBatch(Long[] groupIds, Long[] roleIds) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < groupIds.length; i++) {

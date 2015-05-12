@@ -14,7 +14,7 @@ import org.echoice.ums.domain.EcRole;
 import org.echoice.ums.web.view.RoleView;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.annotation.Transactional;
-@Transactional
+
 public class EcRoleDaoImpl extends BaseCommonDao {
 	public List<EcRole> findRoleTreeChild(Long parentId) {
 		// TODO Auto-generated method stub

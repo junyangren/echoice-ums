@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Lists;
-@Transactional
+
 public class EcObjectsDaoImpl extends BaseCommonDao{
 	/**
 	public List<EcObjects> findByAlias(String alias){
@@ -85,6 +85,7 @@ public class EcObjectsDaoImpl extends BaseCommonDao{
 		},pageNo, pageSize,listParam.toArray());
 		return pageBean;
 	}
+	@Transactional
 	public int updateDrag(Long dragId,Long targetId){
 		String hql="update EcObjects t set t.parentId=? where t.objId=?";
 		Query query = createQuery(hql, new Object[]{targetId,dragId});

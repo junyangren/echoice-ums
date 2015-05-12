@@ -30,12 +30,14 @@ import org.echoice.ums.web.view.UserPermissionView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.annotation.Transactional;
-@Transactional
+
 public class EcPermissionDaoImpl extends BaseCommonDao {
 	@Autowired
 	private EcObjectsDao ecObjectsDao;
 	@Autowired
 	private EcOperatorDao ecOperatorDao;
+	
+	@Transactional
 	public void savePermission(Long roleIds[],Long objId,Long accessIds[]){
 		for (int i = 0; i < roleIds.length; i++) {
 			EcRole ecRole=new EcRole();
@@ -633,7 +635,6 @@ public class EcPermissionDaoImpl extends BaseCommonDao {
 	public void setEcObjectsDao(EcObjectsDao ecObjectsDao) {
 		this.ecObjectsDao = ecObjectsDao;
 	}
-
 
 	public static void main(String[] args) {
 		Long a[]=new Long[]{new Long(123),new Long(321)};

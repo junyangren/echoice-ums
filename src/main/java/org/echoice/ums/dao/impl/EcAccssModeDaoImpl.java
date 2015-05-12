@@ -6,11 +6,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.echoice.core.module.jpa.BaseCommonDao;
 import org.echoice.modules.web.paper.PageBean;
 import org.echoice.ums.domain.EcAccssMode;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Lists;
-@Transactional
+
 public class EcAccssModeDaoImpl extends BaseCommonDao{
+	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly=true)
 	public PageBean findPageCondition(EcAccssMode ecAccssMode, int pageNo,int pageSize) {
 		// TODO Auto-generated method stub
 		String hql="select t from EcAccssMode t where 1=1";

@@ -17,7 +17,7 @@ import org.echoice.ums.domain.EcUsersAssignmen;
 import org.echoice.ums.web.view.UserGroupTotalView;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.annotation.Transactional;
-@Transactional
+
 public class EcUsersAssignmenDaoImpl extends BaseCommonDao {
 
 	public boolean checkIsAssign(Long userId, Long roleId) {
@@ -60,14 +60,14 @@ public class EcUsersAssignmenDaoImpl extends BaseCommonDao {
 			return false;
 		}
 	}
-
+	@Transactional
 	public void remove(Long userId, Long roleId) {
 		// TODO Auto-generated method stub
 		String hql="delete from EcUsersAssignmen t where t.ecUser.userId=? and t.ecRole.roleId=?";
 		Query query=createQuery(hql, new Object[]{userId,roleId});
 		query.executeUpdate();
 	}
-
+	@Transactional
 	public void removeBatch(Long[] userIds, Long[] roleIds) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < userIds.length; i++) {
@@ -78,7 +78,7 @@ public class EcUsersAssignmenDaoImpl extends BaseCommonDao {
 			}
 		}
 	}
-	
+	@Transactional
 	public void removeAssingGroup(Long[] userIds, Long[] groupIds) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < userIds.length; i++) {
@@ -120,7 +120,7 @@ public class EcUsersAssignmenDaoImpl extends BaseCommonDao {
 			}});
 		return list;
 	}
-	
+	@Transactional
 	public void removeGroup(Long userId, Long groupId) {
 		// TODO Auto-generated method stub
 		String hql="delete from EcUserGroup t where t.ecUser.userId=? and t.ecGroup.groupId=?";
@@ -148,7 +148,7 @@ public class EcUsersAssignmenDaoImpl extends BaseCommonDao {
 		List<EcRole> list=createQuery(hql,new Object[]{userId,parnetRoleId}).getResultList();
 		return list;
 	}
-	
+	@Transactional
 	public void saveBatch(Long[] userIds, Long[] roleIds) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < userIds.length; i++) {
@@ -174,7 +174,7 @@ public class EcUsersAssignmenDaoImpl extends BaseCommonDao {
 			}
 		}
 	}
-	
+	@Transactional
 	public void saveAssignGroups(Long[] userIds, Long[] groupIds) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < userIds.length; i++) {

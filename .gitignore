@@ -7,8 +7,14 @@
 *.jar
 *.war
 *.ear
-
+/.classpath
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /.settings
 /target
+/src/main/webapp/WEB-INF/classes
+/src/main/webapp/WEB-INF/classes/logback.xml
+/src/main/webapp/WEB-INF/classes/config
+/src/main/webapp/WEB-INF/classes/META-INF
+/src/main/webapp/WEB-INF/classes/org
+/src/main/webapp/WEB-INF/classes/ehcache.xml

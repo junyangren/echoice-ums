@@ -9,9 +9,9 @@ import org.echoice.ums.domain.EcAccssMode;
 import org.echoice.ums.domain.EcObjects;
 import org.echoice.ums.domain.EcOperator;
 import org.springframework.transaction.annotation.Transactional;
-@Transactional
+
 public class EcOperatorDaoImpl extends BaseCommonDao {
-	
+	@Transactional
 	public void saveBatch(Long[] accssModeIds, Long[] objectsIds) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < accssModeIds.length; i++) {
